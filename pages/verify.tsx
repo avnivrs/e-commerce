@@ -50,7 +50,7 @@ const Verify = () => {
 
         <p className='mt-5 leading-7 text-[rgba(0,0,0,0.5)]'>
           Please take a moment to verify your email address. We sent an email with a verification
-          link to <span className='font-semibold text-black'>{userEmail}</span>. If you didn't
+          link to <span className='font-semibold text-black'>{userEmail}</span>. If you didn&apos;t
           receive the email, check your spam folder or tap the resend button.
         </p>
 

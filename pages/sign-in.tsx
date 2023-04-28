@@ -32,7 +32,7 @@ const SignIn = () => {
           <p className='font-semibold text-[26px] leading-8 text-black'>Welcome Back!</p>
           <button className='w-[57px] h-[57px] rounded-[30px] border-[1px] border-[rgba(102,102,102,0.35)] row-start-1 row-end-3 col-start-2 self-center ml-auto' />
           <p className='font-normal text-[14px] leading-[17px] text-[rgba(0,0,0,0.5)]'>
-            Let's sign you in to get back to where you stopped
+            Let&apos;s sign you in to get back to where you stopped
           </p>
         </header>
 
@@ -89,7 +89,7 @@ const SignIn = () => {
         </form>
 
         <p className='mt-5 text-center text-[rgba(0,0,0,0.5)] text-[12px] leading-7'>
-          Don't have an account yet?{' '}
+          Don&apos;t have an account yet?{' '}
           <Link href='/sign-up' className='font-semibold'>
             Create an account now!
           </Link>

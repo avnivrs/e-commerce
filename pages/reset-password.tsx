@@ -37,7 +37,7 @@ const ResetPassword = () => {
           <h1 className='font-medium text-[16px] leading-8 mt-[70px]'>Reset Done</h1>
 
           <p className='mt-5 font-medium text-[14px] leading-7 text-[rgba(0,0,0,0.5)]'>
-            Click “Return to login” to get back into your account. Let's get shopping again!
+            Click “Return to login” to get back into your account. Let&apos;s get shopping again!
           </p>
 
           <Link

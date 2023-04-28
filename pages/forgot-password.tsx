@@ -48,8 +48,8 @@ const ForgotPassword = () => {
 
           <p className='mt-5 leading-7 text-[rgba(0,0,0,0.5)]'>
             We sent an email with a reset link to{' '}
-            <span className='font-semibold text-black'>{email}</span>. If you didn't receive the
-            email, check your spam folder or tap the resend button.
+            <span className='font-semibold text-black'>{email}</span>. If you didn&apos;t receive
+            the email, check your spam folder or tap the resend button.
           </p>
 
           <button
@@ -74,7 +74,7 @@ const ForgotPassword = () => {
           <header className='max-w-[496px]'>
             <p className='font-semibold text-[26px] leading-8 text-black'>Forgot Password?</p>
             <p className='font-normal text-[14px] leading-[26px] text-[rgba(0,0,0,0.5)] mt-5'>
-              Enter the email address associated with your account and we'll send you a link to
+              Enter the email address associated with your account and we&apos;ll send you a link to
               reset your password.
             </p>
           </header>

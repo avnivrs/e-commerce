@@ -43,7 +43,7 @@ const SignUp = () => {
           <p className='font-semibold text-[26px] leading-8 text-black'>Create an account</p>
           <button className='w-[57px] h-[57px] rounded-[30px] border-[1px] border-[rgba(102,102,102,0.35)] row-start-1 row-end-3 col-start-2 self-center ml-auto' />
           <p className='font-normal text-[14px] leading-[17px] text-[rgba(0,0,0,0.5)]'>
-            Let's sign you up to begin your journey in
+            Let&apos;s sign you up to begin your journey in
             <span className='font-semibold'> Avniverse</span>
           </p>
         </header>
