@@ -16,7 +16,7 @@ const FormAside = () => {
         width={140}
         height={100}
         src='/assets/pngs/avni-white-bg-clear.png'
-        className='absolute left-[4%] bottom-[10%]'
+        className='absolute left-[4%] bottom-[13%]'
       />
     </section>
   );

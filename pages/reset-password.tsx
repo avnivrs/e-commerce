@@ -18,10 +18,10 @@ const ResetPassword = () => {
     const spanTag = e.target.previousElementSibling as HTMLSpanElement;
 
     removeClass(spanTag, 'phones:top-[40%]');
-    addClass(spanTag, 'phones:-top-[10%]', 'phones:bg-white');
+    addClass(spanTag, 'phones:-top-[10%]', 'bg-white');
 
-    removeClass(inputTag, 'bg-concrete', 'phones:border-transparent');
-    addClass(inputTag, 'phones:bg-white', 'phones:border-[rgba(0,0,0,0.5)]');
+    removeClass(inputTag, 'bg-concrete', 'border-transparent');
+    addClass(inputTag, 'bg-white', 'border-dove-gray');
   };
 
   const moveLabelDown = (e: React.FocusEvent<HTMLInputElement>) => {
@@ -31,10 +31,10 @@ const ResetPassword = () => {
     if (inputTag.value.length > 0) return;
 
     addClass(spanTag, 'phones:top-[40%]');
-    removeClass(spanTag, 'phones:-top-[10%]', 'phones:bg-white');
+    removeClass(spanTag, 'phones:-top-[10%]', 'bg-white');
 
-    addClass(inputTag, 'bg-concrete', 'phones:border-transparent');
-    removeClass(inputTag, 'phones:bg-white', 'phones:border-[rgba(0,0,0,0.5)]');
+    addClass(inputTag, 'bg-concrete', 'border-transparent');
+    removeClass(inputTag, 'bg-white', 'border-dove-gray');
   };
 
   const resetPassword = (e: React.FormEvent<HTMLFormElement>) => {
@@ -57,7 +57,7 @@ const ResetPassword = () => {
       <FormAside />
 
       {emailReset ? (
-        <aside className='relative overflow-y-auto w-[690px] text-black bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[70px] pb-[30px] px-[92px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[156px]'>
+        <aside className='relative overflow-y-auto w-[690px] text-black bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[70px] pb-[30px] px-[92px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[100px]'>
           <h1 className='font-medium text-[16px] leading-8 mt-[70px] phones:font-semibold phones:text-[20px] phones:leading-6 phones:tracking-wider'>
             Reset Done
           </h1>
@@ -76,7 +76,7 @@ const ResetPassword = () => {
           <FormFooter extraClassNames='absolute bottom-[30px] left-1/2 -translate-x-1/2 phones:static phones:translate-x-0 phones:mt-[184px]' />
         </aside>
       ) : (
-        <aside className='relative overflow-y-auto w-[690px] text-black bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[79px] pb-[30px] px-[70px] laptops:px-[187px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[156px]'>
+        <aside className='relative overflow-y-auto w-[690px] text-black bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[79px] pb-[30px] px-[70px] laptops:px-[187px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[100px]'>
           <header className='max-w-[496px] font-semibold text-[26px] leading-8 text-black phones:text-[20px] phones:leading-6 phones:tracking-wider'>
             Reset your password
           </header>
@@ -100,7 +100,7 @@ const ResetPassword = () => {
                 onFocus={moveLabelUp}
                 onBlur={moveLabelDown}
                 placeholder='Enter password'
-                className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] phones:py-[16.5px] phones:border-2 phones:border-transparent phones:placeholder:opacity-0 phones:outline-none phones:focus:border-[rgba(0,0,0,0.5)] phones:focus:bg-white phones:font-medium transition-all duration-300 phones:mt-0 phones:rounded-[25px]'
+                className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] phones:py-[16.5px] border-2 border-transparent phones:placeholder:opacity-0 outline-none phones:font-medium transition-all duration-300 phones:mt-0 phones:rounded-[25px]'
               />
               <div
                 onClick={() => togglePassword(passwordref)}
@@ -123,7 +123,7 @@ const ResetPassword = () => {
                 name='confirmPassword'
                 ref={confirmPasswordref}
                 placeholder='Re-enter password'
-                className='mt-[10px] p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] phones:py-[16.5px] phones:border-2 phones:border-transparent phones:placeholder:opacity-0 phones:outline-none phones:focus:border-[rgba(0,0,0,0.5)] phones:focus:bg-white phones:font-medium transition-all duration-300 phones:mt-0 phones:rounded-[25px]'
+                className='mt-[10px] p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] phones:py-[16.5px] border-2 border-transparent phones:placeholder:opacity-0 outline-none phones:font-medium transition-all duration-300 phones:mt-0 phones:rounded-[25px]'
               />
               <div
                 onClick={() => togglePassword(confirmPasswordref)}
@@ -134,7 +134,7 @@ const ResetPassword = () => {
             <input
               type='submit'
               value='Reset'
-              className='cursor-pointer mt-[2px] bg-dove-gray py-[15px] w-full text-white rounded-[30px] font-semibold text-[14px] leading-[17px] disabled:bg-[rgba(0,0,0,0.2)] transition-all duration-500 phones:mt-5'
+              className='cursor-pointer mt-[2px] bg-dove-gray py-5 w-full text-white rounded-[30px] font-semibold text-[14px] leading-[17px] disabled:bg-[rgba(0,0,0,0.2)] transition-all duration-500 phones:mt-5 phones:py-[15px]'
             />
           </form>
 

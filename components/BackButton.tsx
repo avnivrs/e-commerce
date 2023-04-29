@@ -13,7 +13,7 @@ const BackButton: React.FC<Props> = ({ onClick, extraStyles }) => {
         if (onClick) onClick();
       }}
       style={extraStyles}
-      className='absolute z-10 hidden top-[54px] left-[15px] bg-[url(/assets/svgs/caret-left.svg)] bg-center bg-no-repeat w-[30px] h-[30px] rounded-[60px] bg-athens-gray phones:block'
+      className='absolute z-10 hidden top-[30px] left-[15px] bg-[url(/assets/svgs/caret-left.svg)] bg-center bg-no-repeat w-[30px] h-[30px] rounded-[60px] bg-athens-gray phones:block'
     />
   );
 };

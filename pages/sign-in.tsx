@@ -6,7 +6,7 @@ import FormAside from '@/components/FormAside';
 import FormFooter from '@/components/footers/FormFooter';
 import MainLayout from '@/components/layouts/MainLayout';
 
-import { addClass, removeClass, togglePassword } from '@/public/utils';
+import { addClass, removeClass, showAlert, togglePassword } from '@/public/utils';
 
 const SignIn = () => {
   const passwordref = useRef<HTMLInputElement>(null);
@@ -16,10 +16,10 @@ const SignIn = () => {
     const spanTag = e.target.previousElementSibling as HTMLSpanElement;
 
     removeClass(spanTag, 'phones:top-[50%]');
-    addClass(spanTag, 'phones:top-[5%]', 'phones:bg-white');
+    addClass(spanTag, 'phones:top-[5%]', 'bg-white');
 
-    removeClass(inputTag, 'bg-concrete', 'phones:border-transparent');
-    addClass(inputTag, 'phones:bg-white', 'phones:border-[rgba(0,0,0,0.5)]');
+    removeClass(inputTag, 'bg-concrete', 'border-transparent');
+    addClass(inputTag, 'bg-white', 'border-dove-gray');
   };
 
   const moveLabelDown = (e: React.FocusEvent<HTMLInputElement>) => {
@@ -29,10 +29,10 @@ const SignIn = () => {
     if (inputTag.value.length > 0) return;
 
     addClass(spanTag, 'phones:top-[50%]');
-    removeClass(spanTag, 'phones:top-[5%]', 'phones:bg-white');
+    removeClass(spanTag, 'phones:top-[5%]', 'bg-white');
 
-    addClass(inputTag, 'bg-concrete', 'phones:border-transparent');
-    removeClass(inputTag, 'phones:bg-white', 'phones:border-[rgba(0,0,0,0.5)]');
+    addClass(inputTag, 'bg-concrete', 'border-transparent');
+    removeClass(inputTag, 'bg-white', 'border-dove-gray');
   };
 
   const signIn = (e: React.FormEvent<HTMLFormElement>) => {
@@ -52,18 +52,18 @@ const SignIn = () => {
     <MainLayout>
       <FormAside />
 
-      <aside className='overflow-y-auto w-[690px] bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[79px] pb-[30px] px-[70px] laptops:px-[187px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[156px]'>
+      <aside className='overflow-y-auto w-[690px] bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[79px] pb-[30px] px-[70px] laptops:px-[187px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[100px]'>
         <header className='grid grid-cols-[minmax(0,1fr)_57px] grid-rows-2 gap-y-5 phones:gap-y-3 phones:grid-cols-1 phones:px-[10.5px]'>
           <p className='font-semibold text-[26px] leading-8 text-black phones:text-[20px] phones:leading-6 phones:tracking-wider'>
             Welcome Back!
           </p>
-          <button className='w-[57px] h-[57px] bg-[url(/assets/svgs/google.svg)] bg-center bg-no-repeat rounded-[30px] border-[1px] border-[rgba(102,102,102,0.35)] row-start-1 row-end-3 col-start-2 self-center ml-auto phones:hidden' />
+          <button className='w-[57px] h-[57px] bg-[url(/assets/svgs/google.svg)] bg-center bg-no-repeat rounded-[30px] border-[1px] border-[rgba(102,102,102,0.35)] row-start-1 row-end-3 col-start-2 self-center ml-auto phones:hidden transition-all duration-500 hover:bg-[rgba(102,102,102,0.05)]' />
           <p className='font-normal text-[14px] leading-[17px] text-[rgba(0,0,0,0.5)] phones:font-medium phones:leading-7'>
             Let&apos;s sign you in to get back to where you stopped
           </p>
         </header>
 
-        <form onSubmit={signIn} className='mt-[59px] text-black font-normal phones:mt-[50px]'>
+        <form onSubmit={signIn} className='mt-[50px] text-black font-normal'>
           <label htmlFor='email' className='block w-full relative'>
             <span className='ml-5 text-[14px] leading-[17px] text-[rgba(0,0,0,0.5)] phones:px-2 phones:absolute phones:top-[50%] phones:text-[12px] phones:leading-[15px] phones:text-gray-light-1 transition-all duration-300'>
               Email
@@ -78,7 +78,7 @@ const SignIn = () => {
               onFocus={moveLabelUp}
               onBlur={moveLabelDown}
               placeholder='Enter the required email address'
-              className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] phones:border-2 phones:border-transparent phones:placeholder:opacity-0 phones:outline-none phones:focus:border-[rgba(0,0,0,0.5)] phones:focus:bg-white phones:font-medium transition-all duration-300'
+              className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] border-2 border-transparent phones:placeholder:opacity-0 outline-none phones:font-medium transition-all duration-300'
             />
           </label>
 
@@ -97,7 +97,7 @@ const SignIn = () => {
               onFocus={moveLabelUp}
               onBlur={moveLabelDown}
               placeholder='Enter the required password'
-              className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] phones:border-2 phones:border-transparent phones:placeholder:opacity-0 phones:outline-none phones:focus:border-[rgba(0,0,0,0.5)] phones:focus:bg-white phones:font-medium transition-all duration-300'
+              className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] border-2 border-transparent phones:placeholder:opacity-0 outline-none phones:font-medium transition-all duration-300'
             />
             <div
               onClick={() => togglePassword(passwordref)}

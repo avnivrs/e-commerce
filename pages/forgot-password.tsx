@@ -17,10 +17,10 @@ const ForgotPassword = () => {
     const spanTag = e.target.previousElementSibling as HTMLSpanElement;
 
     removeClass(spanTag, 'phones:top-[40%]');
-    addClass(spanTag, 'phones:-top-[10%]', 'phones:bg-white');
+    addClass(spanTag, 'phones:-top-[10%]', 'bg-white');
 
-    removeClass(inputTag, 'bg-concrete', 'phones:border-transparent');
-    addClass(inputTag, 'phones:bg-white', 'phones:border-[rgba(0,0,0,0.5)]');
+    removeClass(inputTag, 'bg-concrete', 'border-transparent');
+    addClass(inputTag, 'bg-white', 'border-dove-gray');
   };
 
   const moveLabelDown = (e: React.FocusEvent<HTMLInputElement>) => {
@@ -30,10 +30,10 @@ const ForgotPassword = () => {
     if (inputTag.value.length > 0) return;
 
     addClass(spanTag, 'phones:top-[40%]');
-    removeClass(spanTag, 'phones:-top-[10%]', 'phones:bg-white');
+    removeClass(spanTag, 'phones:-top-[10%]', 'bg-white');
 
-    addClass(inputTag, 'bg-concrete', 'phones:border-transparent');
-    removeClass(inputTag, 'phones:bg-white', 'phones:border-[rgba(0,0,0,0.5)]');
+    addClass(inputTag, 'bg-concrete', 'border-transparent');
+    removeClass(inputTag, 'bg-white', 'border-dove-gray');
   };
 
   useEffect(() => {
@@ -63,12 +63,12 @@ const ForgotPassword = () => {
       <FormAside />
 
       {emailSent ? (
-        <aside className='relative font-medium text-[14px] leading-[17px] overflow-y-auto w-[690px] text-black bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[70px] pb-[30px] px-[92px] laptops:px-[210px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[156px]'>
+        <aside className='relative font-medium text-[14px] leading-[17px] overflow-y-auto w-[690px] text-black bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[60px] pb-[30px] px-[92px] laptops:px-[210px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[100px]'>
           <p className='text-right phones:hidden'>
             {Math.floor(timer / 60)} min : {(timer % 60).toString().padStart(2, '0')} sec
           </p>
 
-          <header className='mt-[63px] phones:px-[5px]'>
+          <header className='mt-10 phones:px-[5px]'>
             <h1 className='text-[16px] leading-8 phones:font-semibold phones:text-[20px] phones:leading-6 phones:tracking-wider'>
               Email sent!
             </h1>
@@ -102,7 +102,7 @@ const ForgotPassword = () => {
           <FormFooter extraClassNames='absolute bottom-[30px] left-1/2 -translate-x-1/2 laptops:static laptops:translate-x-0 phones:mt-[184px]' />
         </aside>
       ) : (
-        <aside className='relative overflow-y-auto w-[690px] text-black bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[79px] pb-[30px] px-[70px] laptops:px-[187px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[156px]'>
+        <aside className='relative overflow-y-auto w-[690px] text-black bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[79px] pb-[30px] px-[70px] laptops:px-[187px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[100px]'>
           <header className='max-w-[496px] phones:px-[10.5px]'>
             <p className='font-semibold text-[26px] leading-8 text-black phones:text-[20px] phones:leading-6 phones:tracking-wider'>
               Forgot Password?
@@ -129,14 +129,14 @@ const ForgotPassword = () => {
                 onBlur={moveLabelDown}
                 onChange={e => setEmail(e.target.value)}
                 placeholder='Enter the required email address'
-                className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] phones:py-4 phones:border-2 phones:border-transparent phones:placeholder:opacity-0 phones:outline-none phones:focus:border-[rgba(0,0,0,0.5)] phones:focus:bg-white phones:font-medium transition-all duration-300 phones:mt-0 phones:rounded-[25px]'
+                className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] phones:py-4 border-2 border-transparent phones:placeholder:opacity-0 outline-none phones:font-medium transition-all duration-300 phones:mt-0 phones:rounded-[25px]'
               />
             </label>
 
             <input
               type='submit'
               value='Proceed'
-              className='cursor-pointer mt-[30px] bg-dove-gray py-[15px] w-full text-white rounded-[30px] font-semibold text-[14px] leading-[17px] disabled:bg-[rgba(0,0,0,0.2)] transition-all duration-500'
+              className='cursor-pointer mt-[30px] bg-dove-gray py-5 w-full text-white rounded-[30px] font-semibold text-[14px] leading-[17px] disabled:bg-[rgba(0,0,0,0.2)] transition-all duration-500 phones:py-[15px]'
             />
           </form>
 

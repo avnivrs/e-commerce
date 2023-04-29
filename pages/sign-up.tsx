@@ -24,10 +24,10 @@ const SignUp = () => {
     const spanTag = e.target.previousElementSibling as HTMLSpanElement;
 
     removeClass(spanTag, 'phones:top-[40%]');
-    addClass(spanTag, 'phones:-top-[10%]', 'phones:bg-white');
+    addClass(spanTag, 'phones:-top-[10%]', 'bg-white');
 
-    removeClass(inputTag, 'bg-concrete', 'phones:border-transparent');
-    addClass(inputTag, 'phones:bg-white', 'phones:border-[rgba(0,0,0,0.5)]');
+    removeClass(inputTag, 'bg-concrete', 'border-transparent');
+    addClass(inputTag, 'bg-white', 'border-dove-gray');
   };
 
   const moveLabelDown = (e: React.FocusEvent<HTMLInputElement>) => {
@@ -37,10 +37,10 @@ const SignUp = () => {
     if (inputTag.value.length > 0) return;
 
     addClass(spanTag, 'phones:top-[40%]');
-    removeClass(spanTag, 'phones:-top-[10%]', 'phones:bg-white');
+    removeClass(spanTag, 'phones:-top-[10%]', 'bg-white');
 
-    addClass(inputTag, 'bg-concrete', 'phones:border-transparent');
-    removeClass(inputTag, 'phones:bg-white', 'phones:border-[rgba(0,0,0,0.5)]');
+    addClass(inputTag, 'bg-concrete', 'border-transparent');
+    removeClass(inputTag, 'bg-white', 'border-dove-gray');
   };
 
   const signUp = (e: React.FormEvent<HTMLFormElement>) => {
@@ -63,12 +63,12 @@ const SignUp = () => {
     <MainLayout>
       <FormAside />
 
-      <aside className='overflow-y-auto w-[690px] bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[79px] pb-[30px] px-[70px] laptops:px-[187px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[156px]'>
+      <aside className='overflow-y-auto w-[690px] bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[79px] pb-[30px] px-[70px] laptops:px-[187px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[100px]'>
         <header className='grid grid-cols-[minmax(0,1fr)_57px] grid-rows-2 gap-y-5 phones:gap-y-3 phones:grid-cols-1 phones:px-[10.5px]'>
           <p className='font-semibold text-[26px] leading-8 text-black phones:text-[20px] phones:leading-6 phones:tracking-wider'>
             Create an account
           </p>
-          <button className='w-[57px] h-[57px] bg-[url(/assets/svgs/google.svg)] bg-center bg-no-repeat rounded-[30px] border-[1px] border-[rgba(102,102,102,0.35)] row-start-1 row-end-3 col-start-2 self-center ml-auto phones:hidden' />
+          <button className='w-[57px] h-[57px] bg-[url(/assets/svgs/google.svg)] bg-center bg-no-repeat rounded-[30px] border-[1px] border-[rgba(102,102,102,0.35)] row-start-1 row-end-3 col-start-2 self-center ml-auto phones:hidden transition-all duration-500 hover:bg-[rgba(102,102,102,0.05)]' />
           <p className='font-normal text-[14px] leading-[17px] text-[rgba(0,0,0,0.5)] phones:font-medium phones:leading-7'>
             Let&apos;s sign you up to begin your journey in
             <span className='font-semibold'> Avniverse</span>
@@ -93,7 +93,7 @@ const SignUp = () => {
               onFocus={moveLabelUp}
               onBlur={moveLabelDown}
               placeholder='Enter your name'
-              className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] phones:border-2 phones:border-transparent phones:placeholder:opacity-0 phones:outline-none phones:focus:border-[rgba(0,0,0,0.5)] phones:focus:bg-white phones:font-medium transition-all duration-300 phones:mt-0'
+              className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] border-2 border-transparent phones:placeholder:opacity-0 outline-none phones:font-medium transition-all duration-300 phones:mt-0'
             />
           </label>
 
@@ -111,7 +111,7 @@ const SignUp = () => {
               onFocus={moveLabelUp}
               onBlur={moveLabelDown}
               placeholder='Enter your email address'
-              className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] phones:border-2 phones:border-transparent phones:placeholder:opacity-0 phones:outline-none phones:focus:border-[rgba(0,0,0,0.5)] phones:focus:bg-white phones:font-medium transition-all duration-300 phones:mt-0'
+              className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] border-2 border-transparent phones:placeholder:opacity-0 outline-none phones:font-medium transition-all duration-300 phones:mt-0'
             />
           </label>
 
@@ -130,11 +130,11 @@ const SignUp = () => {
               onFocus={moveLabelUp}
               onBlur={moveLabelDown}
               placeholder='Enter password'
-              className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] phones:border-2 phones:border-transparent phones:placeholder:opacity-0 phones:outline-none phones:focus:border-[rgba(0,0,0,0.5)] phones:focus:bg-white phones:font-medium transition-all duration-300 phones:mt-0'
+              className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] border-2 border-transparent phones:placeholder:opacity-0 outline-none phones:font-medium transition-all duration-300 phones:mt-0'
             />
             <div
               onClick={() => togglePassword(passwordref)}
-              className='cursor-pointer w-[18px] h-[18px] bg-[url(/assets/svgs/eye.svg)] bg-no-repeat bg-center absolute right-[22px] top-[calc(60%-14px)]'
+              className='cursor-pointer w-[18px] h-[18px] bg-[url(/assets/svgs/eye.svg)] bg-no-repeat bg-center absolute right-[22px] top-[60%] phones:top-[calc(60%-14px)]'
             />
           </label>
 
@@ -153,11 +153,11 @@ const SignUp = () => {
               name='confirmPassword'
               ref={confirmPasswordref}
               placeholder='Re-enter password'
-              className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] phones:border-2 phones:border-transparent phones:placeholder:opacity-0 phones:outline-none phones:focus:border-[rgba(0,0,0,0.5)] phones:focus:bg-white phones:font-medium transition-all duration-300 phones:mt-0'
+              className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] border-2 border-transparent phones:placeholder:opacity-0 outline-none phones:font-medium transition-all duration-300 phones:mt-0'
             />
             <div
               onClick={() => togglePassword(confirmPasswordref)}
-              className='cursor-pointer w-[18px] h-[18px] bg-[url(/assets/svgs/eye.svg)] bg-no-repeat bg-center absolute right-[22px] top-[calc(60%-14px)]'
+              className='cursor-pointer w-[18px] h-[18px] bg-[url(/assets/svgs/eye.svg)] bg-no-repeat bg-center absolute right-[22px] top-[60%] phones:top-[calc(60%-14px)]'
             />
           </label>
 
