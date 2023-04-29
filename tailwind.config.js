@@ -13,12 +13,15 @@ module.exports = {
       },
       colors: {
         gray: '#858585',
-        concrete: '#f2f2f2',
+        silver: '#c9c9c9',
         romance: '#fffefd',
+        concrete: '#f2f2f2',
         'wild-sand': '#f5f5f5',
         'dove-gray': '#717171',
         'alto-light': '#cecece',
         'outer-space': '#232b2b',
+        'athens-gray': '#eeeff2',
+        'gray-light-1': '#7f7f7f',
         'light-dove-gray': '#676767',
       },
       keyframes: {
