@@ -71,7 +71,7 @@ const ResetPassword = () => {
               />
               <div
                 onClick={() => togglePassword(passwordref)}
-                className='cursor-pointer w-[15px] h-[13px] bg-no-repeat bg-center bg-red-600 absolute right-[22px] top-[60%]'
+                className='cursor-pointer w-[18px] h-[18px] bg-[url(/assets/svgs/eye.svg)] bg-no-repeat bg-center absolute right-[22px] top-[60%]'
               />
             </label>
 
@@ -90,7 +90,7 @@ const ResetPassword = () => {
               />
               <div
                 onClick={() => togglePassword(confirmPasswordref)}
-                className='cursor-pointer w-[15px] h-[13px] bg-no-repeat bg-center bg-red-600 absolute right-[22px] top-[60%]'
+                className='cursor-pointer w-[18px] h-[18px] bg-[url(/assets/svgs/eye.svg)] bg-no-repeat bg-center absolute right-[22px] top-[60%]'
               />
             </label>
 

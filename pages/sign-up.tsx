@@ -41,7 +41,7 @@ const SignUp = () => {
       <aside className='overflow-y-auto w-[690px] bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[79px] pb-[30px] px-[70px] laptops:px-[187px] laptops:w-full laptops:max-w-[90vw]'>
         <header className='grid grid-cols-[minmax(0,1fr)_57px] grid-rows-2 gap-y-5'>
           <p className='font-semibold text-[26px] leading-8 text-black'>Create an account</p>
-          <button className='w-[57px] h-[57px] rounded-[30px] border-[1px] border-[rgba(102,102,102,0.35)] row-start-1 row-end-3 col-start-2 self-center ml-auto' />
+          <button className='w-[57px] h-[57px] bg-[url(/assets/svgs/google.svg)] bg-center bg-no-repeat rounded-[30px] border-[1px] border-[rgba(102,102,102,0.35)] row-start-1 row-end-3 col-start-2 self-center ml-auto' />
           <p className='font-normal text-[14px] leading-[17px] text-[rgba(0,0,0,0.5)]'>
             Let&apos;s sign you up to begin your journey in
             <span className='font-semibold'> Avniverse</span>
@@ -95,7 +95,7 @@ const SignUp = () => {
             />
             <div
               onClick={() => togglePassword(passwordref)}
-              className='cursor-pointer w-[15px] h-[13px] bg-no-repeat bg-center bg-red-600 absolute right-[22px] top-[60%]'
+              className='cursor-pointer w-[18px] h-[18px] bg-[url(/assets/svgs/eye.svg)] bg-no-repeat bg-center absolute right-[22px] top-[60%]'
             />
           </label>
 
@@ -116,7 +116,7 @@ const SignUp = () => {
             />
             <div
               onClick={() => togglePassword(confirmPasswordref)}
-              className='cursor-pointer w-[15px] h-[13px] bg-no-repeat bg-center bg-red-600 absolute right-[22px] top-[60%]'
+              className='cursor-pointer w-[18px] h-[18px] bg-[url(/assets/svgs/eye.svg)] bg-no-repeat bg-center absolute right-[22px] top-[60%]'
             />
           </label>
 
