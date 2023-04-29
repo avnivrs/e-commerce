@@ -12,8 +12,9 @@
 
 html {
   /* firefox scroll styling */
-  scrollbar-width: thin !important;
-  scrollbar-color: var(--dove-gray) var(--alto-light) !important;
+  scrollbar-width: thin;
+  scrollbar-arrow-color: transparent;
+  scrollbar-color: var(--dove-gray) transparent;
 }
 
 ::-webkit-scrollbar {
@@ -28,6 +29,10 @@ html {
   background-color: var(--dove-gray);
 }
 
+aside::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -40,4 +45,17 @@ body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
     rgb(var(--background-start-rgb));
+}
+
+/* Tablets */
+@media screen and (max-width: 768px) {
+  html {
+    /* firefox scroll styling */
+    scrollbar-width: none;
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  ::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
 }
