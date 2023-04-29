@@ -14,6 +14,7 @@ module.exports = {
       colors: {
         gray: '#858585',
         silver: '#c9c9c9',
+        mercury: '#e9e9e9',
         romance: '#fffefd',
         concrete: '#f2f2f2',
         'wild-sand': '#f5f5f5',
