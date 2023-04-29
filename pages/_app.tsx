@@ -11,7 +11,7 @@ const MOBILE_BREAKPOINT = 600;
 const LAPTOP_BREAKPOINT = 1024;
 const SMALL_MOBILE_BREAKPOINT = 400;
 
-const montserrat = Montserrat({ subsets: ['latin'] });
+const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '500', '600', '700'] });
 
 export const AppContext = createContext<AppContextData>({
   screenWidth: 0,
