@@ -53,12 +53,12 @@ const SignIn = () => {
     <MainLayout>
       <FormAside />
 
-      <aside className='overflow-y-auto w-[690px] max-h-[690px] bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[79px] pb-[30px] px-[70px] laptops:px-[187px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[100px]'>
+      <aside className='overflow-y-auto w-[690px] max-h-[690px] bg-white border border-[rgba(102,102,102,0.5)] rounded-3xl pt-[79px] pb-[30px] px-[70px] laptops:px-[187px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[100px]'>
         <header className='grid grid-cols-[minmax(0,1fr)_57px] grid-rows-2 gap-y-5 phones:gap-y-3 phones:grid-cols-1 phones:px-[10.5px]'>
           <p className='font-semibold text-[26px] leading-8 text-black phones:text-[20px] phones:leading-6 phones:tracking-wider'>
             Welcome Back!
           </p>
-          <button className='w-[57px] h-[57px] bg-[url(/assets/svgs/google.svg)] bg-center bg-no-repeat rounded-[30px] border-[1px] border-[rgba(102,102,102,0.35)] row-start-1 row-end-3 col-start-2 self-center ml-auto phones:hidden transition-all duration-500 hover:bg-[rgba(102,102,102,0.05)]' />
+          <button className='w-[57px] h-[57px] bg-[url(/assets/svgs/google.svg)] bg-center bg-no-repeat rounded-[30px] border border-[rgba(102,102,102,0.35)] row-start-1 row-end-3 col-start-2 self-center ml-auto phones:hidden transition-all duration-500 hover:bg-[rgba(102,102,102,0.05)]' />
           <p className='font-normal text-[14px] leading-[17px] text-[rgba(0,0,0,0.5)] phones:font-medium phones:leading-7'>
             Let&apos;s sign you in to get back to where you stopped
           </p>
@@ -119,7 +119,7 @@ const SignIn = () => {
           />
         </form>
 
-        <button className='hidden w-full mt-5 border-[1px] border-silver rounded-[30px] py-[19px] items-center justify-center gap-x-[10px] font-semibold text-[14px] leading-[17px] text-gray-light-1 phones:flex'>
+        <button className='hidden w-full mt-5 border border-silver rounded-[30px] py-[19px] items-center justify-center gap-x-[10px] font-semibold text-[14px] leading-[17px] text-gray-light-1 phones:flex'>
           <Image src='/assets/svgs/google.svg' width={17} height={17} priority alt='' />
           Google
         </button>
