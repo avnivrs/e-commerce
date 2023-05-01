@@ -4,17 +4,18 @@ import { useRef } from 'react';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 
+import Eye from '@/components/Eye';
 import FormAside from '@/components/FormAside';
 import FormFooter from '@/components/footers/FormFooter';
 import MainLayout from '@/components/layouts/MainLayout';
 
-import { addClass, removeClass, showAlert, togglePassword } from '@/public/utils';
+import { addClass, removeClass, showAlert } from '@/public/utils';
 
 const SignUp = () => {
   const router = useRouter();
 
-  const passwordref = useRef<HTMLInputElement>(null);
-  const confirmPasswordref = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+  const confirmPasswordRef = useRef<HTMLInputElement>(null);
 
   const TERMS_OF_USE_URL = '/';
   const PRIVACY_POLICY_URL = '/';
@@ -24,10 +25,10 @@ const SignUp = () => {
     const spanTag = e.target.previousElementSibling as HTMLSpanElement;
 
     removeClass(spanTag, 'phones:top-[40%]');
-    addClass(spanTag, 'phones:-top-[10%]', 'bg-white');
+    addClass(spanTag, 'phones:-top-[10%]', 'phones:bg-white');
 
-    removeClass(inputTag, 'bg-concrete', 'border-transparent');
-    addClass(inputTag, 'bg-white', 'border-dove-gray');
+    removeClass(inputTag, 'phones:bg-concrete', 'phones:border-transparent');
+    addClass(inputTag, 'phones:bg-white', 'phones:border-dove-gray');
   };
 
   const moveLabelDown = (e: React.FocusEvent<HTMLInputElement>) => {
@@ -37,10 +38,10 @@ const SignUp = () => {
     if (inputTag.value.length > 0) return;
 
     addClass(spanTag, 'phones:top-[40%]');
-    removeClass(spanTag, 'phones:-top-[10%]', 'bg-white');
+    removeClass(spanTag, 'phones:-top-[10%]', 'phones:bg-white');
 
-    addClass(inputTag, 'bg-concrete', 'border-transparent');
-    removeClass(inputTag, 'bg-white', 'border-dove-gray');
+    addClass(inputTag, 'phones:bg-concrete', 'phones:border-transparent');
+    removeClass(inputTag, 'phones:bg-white', 'phones:border-dove-gray');
   };
 
   const signUp = (e: React.FormEvent<HTMLFormElement>) => {
@@ -80,7 +81,7 @@ const SignUp = () => {
           className='mt-[59px] text-black font-normal grid grid-cols-2 gap-y-6 gap-x-[30px] phones:mt-[50px] phones:gap-y-5 phones:grid-cols-1'
         >
           <label htmlFor='name' className='block relative'>
-            <span className='ml-5 text-[14px] leading-[17px] text-[rgba(0,0,0,0.5)] phones:px-2 phones:absolute phones:top-[40%] phones:text-[12px] phones:leading-[15px] phones:text-gray-light-1 transition-all duration-300'>
+            <span className='ml-5 text-[14px] leading-[17px] text-[rgba(0,0,0,0.5)] phones:px-1 phones:absolute phones:top-[40%] phones:text-[12px] phones:leading-[15px] phones:text-gray-light-1 transition-all duration-300'>
               Name
             </span>
             <input
@@ -93,12 +94,12 @@ const SignUp = () => {
               onFocus={moveLabelUp}
               onBlur={moveLabelDown}
               placeholder='Enter your name'
-              className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] border-2 border-transparent phones:placeholder:opacity-0 outline-none phones:font-medium transition-all duration-300 phones:mt-0'
+              className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] border-2 border-transparent focus:border-dove-gray phones:border-transparent phones:pl-[22px] phones:placeholder:opacity-0 outline-none phones:font-medium transition-all duration-300 phones:mt-0'
             />
           </label>
 
           <label htmlFor='email' className='block relative'>
-            <span className='ml-5 text-[14px] leading-[17px] text-[rgba(0,0,0,0.5)] phones:px-2 phones:absolute phones:top-[40%] phones:text-[12px] phones:leading-[15px] phones:text-gray-light-1 transition-all duration-300'>
+            <span className='ml-5 text-[14px] leading-[17px] text-[rgba(0,0,0,0.5)] phones:px-1 phones:absolute phones:top-[40%] phones:text-[12px] phones:leading-[15px] phones:text-gray-light-1 transition-all duration-300'>
               Email
             </span>
             <input
@@ -111,12 +112,12 @@ const SignUp = () => {
               onFocus={moveLabelUp}
               onBlur={moveLabelDown}
               placeholder='Enter your email address'
-              className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] border-2 border-transparent phones:placeholder:opacity-0 outline-none phones:font-medium transition-all duration-300 phones:mt-0'
+              className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] border-2 border-transparent focus:border-dove-gray phones:border-transparent phones:pl-[22px] phones:placeholder:opacity-0 outline-none phones:font-medium transition-all duration-300 phones:mt-0'
             />
           </label>
 
           <label htmlFor='password' className='block relative'>
-            <span className='ml-5 text-[14px] leading-[17px] text-[rgba(0,0,0,0.5)] phones:px-2 phones:absolute phones:top-[40%] phones:text-[12px] phones:leading-[15px] phones:text-gray-light-1 transition-all duration-300'>
+            <span className='ml-5 text-[14px] leading-[17px] text-[rgba(0,0,0,0.5)] phones:px-1 phones:absolute phones:top-[40%] phones:text-[12px] phones:leading-[15px] phones:text-gray-light-1 transition-all duration-300'>
               Password
             </span>
             <input
@@ -124,22 +125,22 @@ const SignUp = () => {
               id='password'
               name='password'
               type='password'
-              ref={passwordref}
+              ref={passwordRef}
               spellCheck='false'
               autoComplete='off'
               onFocus={moveLabelUp}
               onBlur={moveLabelDown}
               placeholder='Enter password'
-              className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] border-2 border-transparent phones:placeholder:opacity-0 outline-none phones:font-medium transition-all duration-300 phones:mt-0'
+              className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] border-2 border-transparent focus:border-dove-gray phones:border-transparent phones:pl-[22px] phones:placeholder:opacity-0 outline-none phones:font-medium transition-all duration-300 phones:mt-0'
             />
-            <div
-              onClick={() => togglePassword(passwordref)}
-              className='cursor-pointer w-[18px] h-[18px] bg-[url(/assets/svgs/eye.svg)] bg-no-repeat bg-center absolute right-[22px] top-[60%] phones:top-[calc(60%-14px)]'
+            <Eye
+              passwordRef={passwordRef}
+              extraClassnames='top-[60%] phones:top-[calc(60%-14px)]'
             />
           </label>
 
           <label htmlFor='confirmPassword' className='block relative'>
-            <span className='ml-5 text-[14px] leading-[17px] text-[rgba(0,0,0,0.5)] phones:px-2 phones:absolute phones:top-[40%] phones:text-[12px] phones:leading-[15px] phones:text-gray-light-1 transition-all duration-300'>
+            <span className='ml-5 text-[14px] leading-[17px] text-[rgba(0,0,0,0.5)] phones:px-1 phones:absolute phones:top-[40%] phones:text-[12px] phones:leading-[15px] phones:text-gray-light-1 transition-all duration-300'>
               Confirm password
             </span>
             <input
@@ -151,13 +152,13 @@ const SignUp = () => {
               onFocus={moveLabelUp}
               onBlur={moveLabelDown}
               name='confirmPassword'
-              ref={confirmPasswordref}
+              ref={confirmPasswordRef}
               placeholder='Re-enter password'
-              className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] border-2 border-transparent phones:placeholder:opacity-0 outline-none phones:font-medium transition-all duration-300 phones:mt-0'
+              className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] border-2 border-transparent focus:border-dove-gray phones:border-transparent phones:pl-[22px] phones:placeholder:opacity-0 outline-none phones:font-medium transition-all duration-300 phones:mt-0'
             />
-            <div
-              onClick={() => togglePassword(confirmPasswordref)}
-              className='cursor-pointer w-[18px] h-[18px] bg-[url(/assets/svgs/eye.svg)] bg-no-repeat bg-center absolute right-[22px] top-[60%] phones:top-[calc(60%-14px)]'
+            <Eye
+              passwordRef={confirmPasswordRef}
+              extraClassnames='top-[60%] phones:top-[calc(60%-14px)]'
             />
           </label>
 

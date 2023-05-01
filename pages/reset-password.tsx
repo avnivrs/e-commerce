@@ -1,27 +1,28 @@
 import Link from 'next/link';
 import { useRef, useState } from 'react';
 
+import Eye from '@/components/Eye';
 import FormAside from '@/components/FormAside';
 import FormFooter from '@/components/footers/FormFooter';
 import MainLayout from '@/components/layouts/MainLayout';
 
-import { addClass, removeClass, showAlert, togglePassword } from '@/public/utils';
+import { addClass, removeClass, showAlert } from '@/public/utils';
 
 const ResetPassword = () => {
   const [emailReset, setEmailReset] = useState(false);
 
-  const passwordref = useRef<HTMLInputElement>(null);
-  const confirmPasswordref = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+  const confirmPasswordRef = useRef<HTMLInputElement>(null);
 
   const moveLabelUp = (e: React.FocusEvent<HTMLInputElement>) => {
     const inputTag: HTMLInputElement = e.target;
     const spanTag = e.target.previousElementSibling as HTMLSpanElement;
 
     removeClass(spanTag, 'phones:top-[40%]');
-    addClass(spanTag, 'phones:-top-[10%]', 'bg-white');
+    addClass(spanTag, 'phones:-top-[10%]', 'phones:bg-white');
 
-    removeClass(inputTag, 'bg-concrete', 'border-transparent');
-    addClass(inputTag, 'bg-white', 'border-dove-gray');
+    removeClass(inputTag, 'phones:bg-concrete', 'phones:border-transparent');
+    addClass(inputTag, 'phones:bg-white', 'phones:border-dove-gray');
   };
 
   const moveLabelDown = (e: React.FocusEvent<HTMLInputElement>) => {
@@ -31,10 +32,10 @@ const ResetPassword = () => {
     if (inputTag.value.length > 0) return;
 
     addClass(spanTag, 'phones:top-[40%]');
-    removeClass(spanTag, 'phones:-top-[10%]', 'bg-white');
+    removeClass(spanTag, 'phones:-top-[10%]', 'phones:bg-white');
 
-    addClass(inputTag, 'bg-concrete', 'border-transparent');
-    removeClass(inputTag, 'bg-white', 'border-dove-gray');
+    addClass(inputTag, 'phones:bg-concrete', 'phones:border-transparent');
+    removeClass(inputTag, 'phones:bg-white', 'phones:border-dove-gray');
   };
 
   const resetPassword = (e: React.FormEvent<HTMLFormElement>) => {
@@ -86,7 +87,7 @@ const ResetPassword = () => {
             className='mt-[74px] font-normal flex flex-col gap-y-7 phones:mt-[30px] phones:gap-y-5'
           >
             <label htmlFor='password' className='block relative text-[12px] leading-[15px]'>
-              <span className='ml-5 text-[rgba(0,0,0,0.5)] phones:px-2 phones:absolute phones:top-[40%] phones:text-gray-light-1 transition-all duration-300'>
+              <span className='ml-5 text-[rgba(0,0,0,0.5)] phones:px-1 phones:absolute phones:top-[40%] phones:text-gray-light-1 transition-all duration-300'>
                 Password
               </span>
               <input
@@ -94,22 +95,22 @@ const ResetPassword = () => {
                 id='password'
                 name='password'
                 type='password'
-                ref={passwordref}
+                ref={passwordRef}
                 spellCheck='false'
                 autoComplete='off'
                 onFocus={moveLabelUp}
                 onBlur={moveLabelDown}
                 placeholder='Enter password'
-                className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] phones:py-[16.5px] border-2 border-transparent phones:placeholder:opacity-0 outline-none phones:font-medium transition-all duration-300 phones:mt-0 phones:rounded-[25px]'
+                className='mt-3 p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] phones:py-[16.5px] border-2 border-transparent focus:border-dove-gray phones:border-transparent phones:pl-[22px] phones:placeholder:opacity-0 outline-none phones:font-medium transition-all duration-300 phones:mt-0 phones:rounded-[25px]'
               />
-              <div
-                onClick={() => togglePassword(passwordref)}
-                className='cursor-pointer w-[18px] h-[18px] bg-[url(/assets/svgs/eye.svg)] bg-no-repeat bg-center absolute right-[22px] top-[55%] phones:top-[calc(55%-10px)]'
+              <Eye
+                passwordRef={passwordRef}
+                extraClassnames='top-[55%] phones:top-[calc(55%-10px)]'
               />
             </label>
 
             <label htmlFor='confirmPassword' className='block relative text-[12px] leading-[15px]'>
-              <span className='ml-5 text-[rgba(0,0,0,0.5)] phones:px-2 phones:absolute phones:top-[40%] phones:text-gray-light-1 transition-all duration-300'>
+              <span className='ml-5 text-[rgba(0,0,0,0.5)] phones:px-1 phones:absolute phones:top-[40%] phones:text-gray-light-1 transition-all duration-300'>
                 Confirm password
               </span>
               <input
@@ -121,13 +122,13 @@ const ResetPassword = () => {
                 onFocus={moveLabelUp}
                 onBlur={moveLabelDown}
                 name='confirmPassword'
-                ref={confirmPasswordref}
+                ref={confirmPasswordRef}
                 placeholder='Re-enter password'
-                className='mt-[10px] p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] phones:py-[16.5px] border-2 border-transparent phones:placeholder:opacity-0 outline-none phones:font-medium transition-all duration-300 phones:mt-0 phones:rounded-[25px]'
+                className='mt-[10px] p-5 w-full bg-concrete rounded-[30px] text-[12px] leading-[15px] placeholder:text-[rgba(0,0,0,0.5)] phones:py-[16.5px] border-2 border-transparent focus:border-dove-gray phones:border-transparent phones:pl-[22px] phones:placeholder:opacity-0 outline-none phones:font-medium transition-all duration-300 phones:mt-0 phones:rounded-[25px]'
               />
-              <div
-                onClick={() => togglePassword(confirmPasswordref)}
-                className='cursor-pointer w-[18px] h-[18px] bg-[url(/assets/svgs/eye.svg)] bg-no-repeat bg-center absolute right-[22px] top-[55%] phones:top-[calc(55%-10px)]'
+              <Eye
+                passwordRef={confirmPasswordRef}
+                extraClassnames='top-[55%] phones:top-[calc(55%-10px)]'
               />
             </label>
 
