@@ -29,7 +29,7 @@ const Error: React.FC<Props> = ({
   };
 
   return (
-    <main className={`relative font-medium ${poppins.className}`}>
+    <main className={`relative font-medium bg-white dark:bg-shark ${poppins.className}`}>
       <div className='grid grid-cols-[25%_75%] w-[261px] h-[103px] fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
         <h1 className='font-semibold text-[22px] leading-[33px] border-r-[1px] border-dove-gray flex items-center'>
           {errorCode}
