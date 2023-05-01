@@ -58,7 +58,7 @@ const ResetPassword = () => {
       <FormAside />
 
       {emailReset ? (
-        <aside className='relative overflow-y-auto w-[690px] text-black bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[70px] pb-[30px] px-[92px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[100px]'>
+        <aside className='relative overflow-y-auto w-[690px] max-h-[690px] text-black bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[70px] pb-[30px] px-[92px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[100px]'>
           <h1 className='font-medium text-[16px] leading-8 mt-[70px] phones:font-semibold phones:text-[20px] phones:leading-6 phones:tracking-wider'>
             Reset Done
           </h1>
@@ -77,7 +77,7 @@ const ResetPassword = () => {
           <FormFooter extraClassNames='absolute bottom-[30px] left-1/2 -translate-x-1/2 phones:static phones:translate-x-0 phones:mt-[184px]' />
         </aside>
       ) : (
-        <aside className='relative overflow-y-auto w-[690px] text-black bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[79px] pb-[30px] px-[70px] laptops:px-[187px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[100px]'>
+        <aside className='relative overflow-y-auto w-[690px] max-h-[690px] text-black bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[79px] pb-[30px] px-[70px] laptops:px-[187px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[100px]'>
           <header className='max-w-[496px] font-semibold text-[26px] leading-8 text-black phones:text-[20px] phones:leading-6 phones:tracking-wider'>
             Reset your password
           </header>

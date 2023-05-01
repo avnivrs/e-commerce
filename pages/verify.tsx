@@ -41,7 +41,7 @@ const Verify = () => {
     <MainLayout>
       <FormAside />
 
-      <aside className='relative font-medium text-[14px] leading-[17px] overflow-y-auto w-[690px] text-black bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[60px] pb-[30px] px-[92px] laptops:px-[210px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[100px]'>
+      <aside className='relative font-medium text-[14px] leading-[17px] overflow-y-auto w-[690px] max-h-[690px] text-black bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[60px] pb-[30px] px-[92px] laptops:px-[210px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[100px]'>
         <p className='text-right phones:hidden'>
           {Math.floor(timer / 60)} min : {(timer % 60).toString().padStart(2, '0')} sec
         </p>

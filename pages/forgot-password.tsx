@@ -63,7 +63,7 @@ const ForgotPassword = () => {
       <FormAside />
 
       {emailSent ? (
-        <aside className='relative font-medium text-[14px] leading-[17px] overflow-y-auto w-[690px] text-black bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[60px] pb-[30px] px-[92px] laptops:px-[210px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[100px]'>
+        <aside className='relative font-medium text-[14px] leading-[17px] overflow-y-auto w-[690px] max-h-[690px] text-black bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[60px] pb-[30px] px-[92px] laptops:px-[210px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[100px]'>
           <p className='text-right phones:hidden'>
             {Math.floor(timer / 60)} min : {(timer % 60).toString().padStart(2, '0')} sec
           </p>
@@ -102,7 +102,7 @@ const ForgotPassword = () => {
           <FormFooter extraClassNames='absolute bottom-[30px] left-1/2 -translate-x-1/2 laptops:static laptops:translate-x-0 phones:mt-[184px]' />
         </aside>
       ) : (
-        <aside className='relative overflow-y-auto w-[690px] text-black bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[79px] pb-[30px] px-[70px] laptops:px-[187px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[100px]'>
+        <aside className='relative overflow-y-auto w-[690px] max-h-[690px] text-black bg-white border-[1px] border-[rgba(102,102,102,0.5)] rounded-3xl pt-[79px] pb-[30px] px-[70px] laptops:px-[187px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[100px]'>
           <header className='max-w-[496px] phones:px-[10.5px]'>
             <p className='font-semibold text-[26px] leading-8 text-black phones:text-[20px] phones:leading-6 phones:tracking-wider'>
               Forgot Password?
