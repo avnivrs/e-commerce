@@ -18,12 +18,14 @@ export const AppContext = createContext<AppContextData>({
   menuOpened: false,
   LAPTOP_BREAKPOINT,
   MOBILE_BREAKPOINT,
+  overlayOpened: false,
   SMALL_MOBILE_BREAKPOINT,
 });
 
 export default function App({ Component, pageProps }: AppProps) {
   const [screenWidth, setScreenWidth] = useState(0);
   const [menuOpened, setMenuOpened] = useState(false);
+  const [overlayOpened, setOverlayOpened] = useState(false);
 
   // componentDidMount
   useEffect(() => setScreenWidth(window.screen.availWidth), []);
@@ -34,6 +36,8 @@ export default function App({ Component, pageProps }: AppProps) {
         menuOpened,
         screenWidth,
         setMenuOpened,
+        overlayOpened,
+        setOverlayOpened,
         MOBILE_BREAKPOINT,
         LAPTOP_BREAKPOINT,
         SMALL_MOBILE_BREAKPOINT,
