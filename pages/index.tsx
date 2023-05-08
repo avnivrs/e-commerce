@@ -142,7 +142,7 @@ const Home = () => {
       </header>
 
       <section className='text-center relative mt-[150px] bg-[url(/assets/pngs/clothing.png)] before:absolute before:bg-[rgba(0,0,0,0.5)] before:backdrop-blur-[5px] before:inset-0 before:w-full before:h-full bg-fixed bg-alto h-screen font-semibold text-alto-light px-[15%] pt-[17.5%] pb-[15%] grid grid-cols-1 gap-y-10'>
-        <p className='text-[18px] leading-[22px] z-[1]'>Hello, I'm Neo</p>
+        <p className='text-[18px] leading-[22px] z-[1]'>Hello, I&apos;m Neo</p>
         <p className='text-white text-[24px] leading-[29px] z-[1]'>
           I will be your personal shopping assistant
         </p>
@@ -204,7 +204,7 @@ const Home = () => {
         <header className='w-[900px] mx-auto flex items-center justify-between font-medium tracking-[0.36px]'>
           <p className='w-[300px] text-[24px] leading-[45px]'>Inspired by the things other shop</p>
           <p className='w-[296px] text-[14px] leading-[21px]'>
-            Get inspired by others' shopping choices with our carefully curated collection
+            Get inspired by others&apos; shopping choices with our carefully curated collection
           </p>
         </header>
 
