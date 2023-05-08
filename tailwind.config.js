@@ -12,9 +12,12 @@ module.exports = {
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
+        alto: '#d9d9d9',
         gray: '#858585',
         shark: '#1b1c1e',
+        zorba: '#9c9288',
         silver: '#c9c9c9',
+        mischka: '#d2d2d7',
         mercury: '#e9e9e9',
         romance: '#fffefd',
         concrete: '#f2f2f2',
@@ -24,8 +27,13 @@ module.exports = {
         'alto-light': '#cecece',
         'outer-space': '#232b2b',
         'athens-gray': '#eeeff2',
+        'outer-space': '#232b2b',
+        'white-lilac': '#fcfcfd',
         'gray-light-1': '#7f7f7f',
+        'shark-shade-1': '#1d1d1f',
+        'azure-radiance': '#0381f9',
         'light-dove-gray': '#676767',
+        'mercury-light-1': '#e3e3e3',
       },
       keyframes: {
         'pop-down': {
