@@ -8,12 +8,13 @@
   --background-end-rgb: 255, 255, 255;
   --dove-gray: #717171;
   --alto-light: #cecece;
+  --azure-radiance: #0381f9;
 }
 
-html {
+.auth {
   /* firefox scroll styling */
   scrollbar-width: thin;
-  scrollbar-arrow-color: transparent;
+  scrollbar-arrow-color: var(--dove-gray);
   scrollbar-color: var(--dove-gray) transparent;
 }
 
@@ -29,29 +30,31 @@ html {
   background-color: var(--dove-gray);
 }
 
+.home::-webkit-scrollbar-track {
+  background-color: var(--alto-light);
+}
+
+.home::-webkit-scrollbar-thumb {
+  background-color: var(--azure-radiance);
+}
+
+.scroll-hidden {
+  scrollbar-width: none; /* firefox scroll styling */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.scroll-hidden::-webkit-scrollbar {
+  display: none;
+}
+
 aside::-webkit-scrollbar-track {
   background-color: transparent;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
-    rgb(var(--background-start-rgb));
-}
-
 /* Tablets */
 @media screen and (max-width: 768px) {
-  html {
-    /* firefox scroll styling */
-    scrollbar-width: none;
+  .auth {
+    scrollbar-width: none; /* firefox scroll styling */
     -ms-overflow-style: none; /* IE and Edge */
   }
 
