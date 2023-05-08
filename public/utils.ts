@@ -77,3 +77,23 @@ export const showAlert = ({
     }, duration);
   }
 };
+
+export const scrollNextItems = (containerSelector: string, xMovement?: number) => {
+  const container: HTMLDivElement = document.querySelector(containerSelector)!;
+
+  const currentScrollLeft = container.scrollLeft;
+  const containerWidth = xMovement || container.clientWidth;
+  const newScrollLeft = currentScrollLeft + containerWidth;
+
+  container.scrollTo({ left: newScrollLeft, behavior: 'smooth' });
+};
+
+export const scrollPreviousItems = (containerSelector: string, xMovement?: number) => {
+  const container: HTMLDivElement = document.querySelector(containerSelector)!;
+
+  const currentScrollLeft = container.scrollLeft;
+  const containerWidth = xMovement || container.clientWidth;
+  const newScrollLeft = currentScrollLeft - containerWidth;
+
+  container.scrollTo({ left: newScrollLeft, behavior: 'smooth' });
+};
