@@ -187,11 +187,7 @@ const Home = () => {
           </p>
         </header>
 
-        <div
-          id='products'
-          // onMouseOver="pauseScroll()" onMouseOut="resumeScroll()"
-          className='scroll-hidden mt-[50px] flex gap-x-6 overflow-x-auto'
-        >
+        <div id='products' className='scroll-hidden mt-[50px] flex gap-x-6 overflow-x-auto'>
           {products.map(product => (
             <ProductCard key={product.id} product={product} />
           ))}

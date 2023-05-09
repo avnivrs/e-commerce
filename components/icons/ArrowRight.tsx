@@ -26,7 +26,7 @@ const ArrowRight: React.FC<Props> = ({
     onMouseLeave={onMouseLeave}
     onMouseEnter={onMouseEnter}
     xmlns='http://www.w3.org/2000/svg'
-    className={`${extraClassnames} absolute z-10 top-1/2 -translate-y-1/2 left-0 opacity-100 w-[65px] h-[65px] p-[10px] border-red-950 border-[6px] grid place-items-center text-white bg-zorba rounded-full duration-500 dark:border-shark dark:bg-white dark:text-zorba small-phones:hidden`}
+    className={`absolute z-10 top-1/2 -translate-y-1/2 left-0 opacity-100 w-[65px] h-[65px] p-[10px] border-red-950 border-[6px] grid place-items-center text-white bg-zorba rounded-full duration-500 dark:border-shark dark:bg-white dark:text-zorba small-phones:hidden ${extraClassnames}`}
   >
     <path
       fillRule='evenodd'
