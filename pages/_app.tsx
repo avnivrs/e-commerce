@@ -50,7 +50,48 @@ export default function App({ Component, pageProps }: AppProps) {
       <main
         className={`root transition-all w-full duration-500 absolute top-0 ${montserrat.className}`}
       >
-        <Script id='unload-script'>{`window.onbeforeunload = () => window.scrollTo(0, 0);`}</Script>
+        <Script id='unload-script'>{`
+          window.onbeforeunload = () => window.scrollTo(0, 0);
+          
+          scrollRate = 10;
+
+          const scrollDivInit = () => {
+              divContainer = document.getElementById('products');
+              reachedEnd = false;
+
+              divContainer.scrollLeft = 0;
+              previousScrollLeft = 0;
+
+              scrollInterval = setInterval('scrollDiv()', scrollRate);
+          }
+
+          const scrollDiv = () => {
+              if (reachedEnd) {
+                  reachedEnd = !(divContainer.scrollLeft === 0);
+
+                  divContainer.scrollLeft = previousScrollLeft;
+                  previousScrollLeft--;
+              }
+              else {
+                  divContainer.scrollLeft = previousScrollLeft;
+                  previousScrollLeft++;
+
+                  reachedEnd = divContainer.scrollLeft >= (divContainer.scrollWidth - divContainer.offsetWidth);
+              }
+          }
+
+          const pauseScroll = () => clearInterval(scrollInterval);
+
+          const resumeScroll = () => {
+              previousScrollLeft = divContainer.scrollLeft;
+              scrollInterval = setInterval('scrollDiv()', scrollRate);
+          }
+
+          window.onload = scrollDivInit();
+
+          divContainer.onmouseover = pauseScroll;
+          divContainer.onmouseout = resumeScroll;
+        `}</Script>
 
         <Component {...pageProps} />
 

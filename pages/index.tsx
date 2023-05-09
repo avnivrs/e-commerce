@@ -24,11 +24,8 @@ import {
 } from '@/public/utils';
 
 const Home = () => {
-  const [timer, setTimer] = useState(0);
-  const [movementX, setMovementX] = useState(10);
   const [products, setProducts] = useState<Product[]>([]);
   const [overlayOpened, setOverlayOpened] = useState(false);
-  const [previousMovementX, setPreviousMovementX] = useState(movementX);
   const optionProps: SliderProps[] = [
     { width: 114, marginLeft: 0 },
     { width: 140, marginLeft: '33.5%' },
@@ -55,7 +52,7 @@ const Home = () => {
     if (newSliderProps) setSliderProps(newSliderProps);
   };
 
-  useEffect(() => {
+  const fetchProducts = () => {
     axios
       .get('/api/products')
       .then(res => {
@@ -63,27 +60,9 @@ const Home = () => {
         setProducts(data.products);
       })
       .catch(error => showAlert({ msg: 'An error occured while fetching products' }));
-  }, []);
+  };
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setTimer(value => value + 1);
-
-      if (movementX === 0) return;
-
-      const { clientWidth, scrollLeft, scrollWidth }: HTMLDivElement =
-        document.querySelector('.products')!;
-
-      const reachedStart: boolean = scrollLeft === 0;
-      const reachedEnd: boolean = Math.abs(scrollWidth - scrollLeft - clientWidth) < 1;
-      const movementToRight: boolean = movementX > 0;
-
-      scrollNextItems('.products', movementX);
-      if (reachedEnd && movementToRight) setMovementX(value => -1 * value);
-      else if (reachedStart && !movementToRight) setMovementX(value => -1 * value);
-    }, 1);
-    return () => clearTimeout(timeout);
-  }, [timer, movementX]);
+  useEffect(fetchProducts, []);
 
   return (
     <main className='home min-h-screen text-outer-space dark:text-white'>
@@ -141,7 +120,7 @@ const Home = () => {
         </div>
       </header>
 
-      <section className='text-center relative mt-[150px] bg-[url(/assets/pngs/clothing.png)] before:absolute before:bg-[rgba(0,0,0,0.5)] before:backdrop-blur-[5px] before:inset-0 before:w-full before:h-full bg-fixed bg-alto h-screen font-semibold text-alto-light px-[15%] pt-[17.5%] pb-[15%] grid grid-cols-1 gap-y-10'>
+      <section className='text-center relative mt-[150px] bg-[url(/assets/pngs/clothing.png)] bg-no-repeat before:absolute before:bg-[rgba(0,0,0,0.5)] before:backdrop-blur-[5px] before:inset-0 before:w-full before:h-full bg-fixed bg-alto h-screen font-semibold text-alto-light px-[15%] pt-[17.5%] pb-[15%] grid grid-cols-1 gap-y-10'>
         <p className='text-[18px] leading-[22px] z-[1]'>Hello, I&apos;m Neo</p>
         <p className='text-white text-[24px] leading-[29px] z-[1]'>
           I will be your personal shopping assistant
@@ -209,12 +188,9 @@ const Home = () => {
         </header>
 
         <div
-          onMouseEnter={() => {
-            setPreviousMovementX(movementX);
-            setMovementX(0);
-          }}
-          onMouseLeave={() => setMovementX(previousMovementX)}
-          className='products scroll-hidden mt-[50px] flex gap-x-6 overflow-x-auto'
+          id='products'
+          // onMouseOver="pauseScroll()" onMouseOut="resumeScroll()"
+          className='scroll-hidden mt-[50px] flex gap-x-6 overflow-x-auto'
         >
           {products.map(product => (
             <ProductCard key={product.id} product={product} />
