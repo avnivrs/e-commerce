@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ExtraStyle } from '@/public/interfaces';
-import ArrowRightCircled from './icons/ArrowRightCircled';
+import ArrowRightCircled from './ArrowRightCircled';
 
 interface Props {
   text: string;

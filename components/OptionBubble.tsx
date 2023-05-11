@@ -9,6 +9,7 @@ import { CategoryIcons } from '@/public/interfaces';
 
 interface Props {
   bgName: CategoryIconName;
+  extraClassNames?: string;
 }
 
 const icons: CategoryIcons = {
@@ -19,9 +20,11 @@ const icons: CategoryIcons = {
   clothing: <Clothing />,
 };
 
-const OptionBubble: React.FC<Props> = ({ bgName }) => {
+const OptionBubble: React.FC<Props> = ({ bgName, extraClassNames }) => {
   return (
-    <button className='shrink-0 font-normal text-[12px] leading-[15px] text-shark-shade-1 capitalize dark:text-white'>
+    <button
+      className={`shrink-0 font-normal text-[12px] leading-[15px] text-shark-shade-1 capitalize dark:text-white ${extraClassNames}`}
+    >
       {icons[bgName]}
       {bgName}
     </button>

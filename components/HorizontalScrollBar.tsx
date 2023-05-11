@@ -2,17 +2,21 @@ import { ExtraStyle } from '@/public/interfaces';
 import { useEffect, useRef, useState } from 'react';
 
 interface Props {
-  onScroll: () => void;
-  linkedContainerID: string;
+  onScroll?: () => void;
+  targetSelector: string;
   extraTrackStyles?: ExtraStyle;
   extraThumbStyles?: ExtraStyle;
+  extraTrackClassNames?: string;
+  extraThumbClassNames?: string;
 }
 
 const HorizontalScrollBar: React.FC<Props> = ({
   onScroll,
+  targetSelector,
   extraTrackStyles,
   extraThumbStyles,
-  linkedContainerID,
+  extraTrackClassNames,
+  extraThumbClassNames,
 }) => {
   const trackRef = useRef<HTMLDivElement>(null);
   const thumbRef = useRef<HTMLDivElement>(null);
@@ -20,15 +24,12 @@ const HorizontalScrollBar: React.FC<Props> = ({
   const [scrollbarWidthPercent, setScrollbarWidthPercent] = useState(0);
 
   useEffect(() => {
-    // disable this custom scrollbar on firefox browsers
-    const browserIsFirefox: boolean = navigator.userAgent.indexOf('Firefox') !== -1;
-
-    if (browserIsFirefox) {
-      trackRef.current!.style.display = 'none';
-      return;
+    const container: HTMLDivElement | null = document.querySelector(targetSelector);
+    if (!container) {
+      return console.error(
+        `Div container with target: '${targetSelector}' does not exist in the DOM`
+      );
     }
-
-    const container: HTMLDivElement = document.querySelector(`#${linkedContainerID}`)!;
 
     // set width for thumb...
     const conatinerWidth: number = container.clientWidth || 0;
@@ -46,7 +47,7 @@ const HorizontalScrollBar: React.FC<Props> = ({
 
       if (onScroll) onScroll();
     };
-  }, [linkedContainerID]);
+  });
 
   // componentDidUnmount
   useEffect(() => {
@@ -57,13 +58,18 @@ const HorizontalScrollBar: React.FC<Props> = ({
 
   const onDrag = (e: globalThis.MouseEvent) => {
     const { movementX } = e;
-    const conatiner: HTMLDivElement = document.querySelector(`#${linkedContainerID}`)!;
+    const container: HTMLDivElement | null = document.querySelector(targetSelector);
+    if (!container) {
+      return console.error(
+        `Div container with target: '${targetSelector}' does not exist in the DOM`
+      );
+    }
 
-    const oldScrollLeft: number = conatiner.scrollLeft;
+    const oldScrollLeft: number = container.scrollLeft;
     // const newScrollLeft = oldScrollLeft + scrollbarWidthPercent * movementX;
     const newScrollLeft: number = oldScrollLeft + 200 * movementX;
 
-    conatiner.scrollLeft = newScrollLeft;
+    container.scrollLeft = newScrollLeft;
   };
 
   const onThumbMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -104,14 +110,14 @@ const HorizontalScrollBar: React.FC<Props> = ({
       style={extraTrackStyles}
       onMouseEnter={onTrackMouseEnter}
       onMouseLeave={onTrackMouseLeave}
-      className='relative mt-[30px] w-full h-[2px] bg-alto-dark transition-all duration-300'
+      className={`relative rounded mt-[30px] w-full h-[2px] bg-alto-dark transition-all duration-300 ${extraTrackClassNames}`}
     >
       <div
         ref={thumbRef}
         style={extraThumbStyles}
         onMouseUp={onThumbMouseUp}
         onMouseDown={onThumbMouseDown}
-        className='absolute h-full bg-cod-gray ease-linear'
+        className={`absolute rounded h-full bg-cod-gray ease-linear ${extraThumbClassNames}`}
       />
     </div>
   );

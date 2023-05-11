@@ -38,6 +38,7 @@ const AvniCard: React.FC<Props> = ({ visible }) => {
           </span>
         </p>
         <Link
+          target='_blank'
           href='https://avni.vercel.app'
           className='text-[12px] leading-[15px] text-wild-sand py-3 rounded-3xl bg-azure-radiance w-full text-center'
         >
