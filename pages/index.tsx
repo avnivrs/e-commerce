@@ -210,7 +210,9 @@ const Home = () => {
 
       <SectionLayout>
         <header className='tracking-[0.36px] w-[520px]'>
-          <h3 className='text-[24px] leading-[45px]'>Kid's Corner: Where Fun Meets Learning</h3>
+          <h3 className='text-[24px] leading-[45px]'>
+            Kid&apos;s Corner: Where Fun Meets Learning
+          </h3>
           <p className='mt-6 text-[14px] leading-[21px]'>
             Explore our collection of clothes, shoes, toys, and educational products for kids and
             give them the gift of fun and learning.
@@ -368,7 +370,7 @@ const Home = () => {
           </p>
           <p className='mt-[15px] font-medium text-[14px] leading-[30px] text-light-dove-gray max-w-[400px] mx-auto'>
             Shop multiple stores at once! Our product aggregation feature makes it easy to find what
-            you're looking for by giving you access to a wide range of options in one place.
+            you&apos;re looking for by giving you access to a wide range of options in one place.
           </p>
         </div>
 
