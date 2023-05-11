@@ -59,6 +59,8 @@ export default function App({ Component, pageProps }: AppProps) {
               divContainer = document.getElementById('products');
               reachedEnd = false;
 
+              if(!divContainer) return;
+
               divContainer.scrollLeft = 0;
               previousScrollLeft = 0;
 
@@ -89,8 +91,10 @@ export default function App({ Component, pageProps }: AppProps) {
 
           window.onload = scrollDivInit();
 
-          divContainer.onmouseover = pauseScroll;
-          divContainer.onmouseout = resumeScroll;
+          if(divContainer){
+            divContainer.onmouseover = pauseScroll;
+            divContainer.onmouseout = resumeScroll;
+          }
         `}</Script>
 
         <Component {...pageProps} />

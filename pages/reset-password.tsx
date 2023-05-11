@@ -58,7 +58,7 @@ const ResetPassword = () => {
       <FormAside />
 
       {emailReset ? (
-        <aside className='relative overflow-y-auto w-[690px] max-h-[690px] text-black bg-white border border-[rgba(102,102,102,0.5)] rounded-3xl pt-[70px] pb-[30px] px-[92px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[100px]'>
+        <aside className='auth-scroll relative overflow-y-auto w-[690px] max-h-[690px] text-black bg-white border border-[rgba(102,102,102,0.5)] rounded-3xl pt-[70px] pb-[30px] px-[92px] laptops:w-full laptops:max-w-[90vw] phones:max-w-[100vw] phones:rounded-none phones:h-screen phones:px-5 phones:pt-[100px]'>
           <h1 className='font-medium text-[16px] leading-8 mt-[70px] phones:font-semibold phones:text-[20px] phones:leading-6 phones:tracking-wider'>
             Reset Done
           </h1>

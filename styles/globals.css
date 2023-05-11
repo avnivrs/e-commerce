@@ -3,38 +3,43 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
   --dove-gray: #717171;
+  --endeavour: #025cb1;
+  --wild-sand: #f5f5f5;
   --alto-light: #cecece;
   --azure-radiance: #0381f9;
-}
-
-.auth {
-  /* firefox scroll styling */
-  scrollbar-width: thin;
-  scrollbar-arrow-color: var(--dove-gray);
-  scrollbar-color: var(--dove-gray) transparent;
 }
 
 ::-webkit-scrollbar {
   width: 7px;
 }
 
-::-webkit-scrollbar-track {
+.auth-scroll {
+  /* firefox scroll styling */
+  scrollbar-width: thin;
+  scrollbar-arrow-color: var(--dove-gray);
+  scrollbar-color: var(--dove-gray) transparent;
+}
+
+.auth-scroll::-webkit-scrollbar-track {
   background-color: var(--alto-light);
 }
 
-::-webkit-scrollbar-thumb {
+.auth-scroll::-webkit-scrollbar-thumb {
   background-color: var(--dove-gray);
 }
 
-.home::-webkit-scrollbar-track {
+.home-scroll {
+  /* firefox scroll styling */
+  scrollbar-width: thin;
+  scrollbar-color: var(--azure-radiance) var(--alto-light);
+}
+
+.home-scroll::-webkit-scrollbar-track {
   background-color: var(--alto-light);
 }
 
-.home::-webkit-scrollbar-thumb {
+.home-scroll::-webkit-scrollbar-thumb {
   background-color: var(--azure-radiance);
 }
 
@@ -51,14 +56,56 @@ aside::-webkit-scrollbar-track {
   background-color: transparent;
 }
 
+@media (prefers-color-scheme: dark) {
+  .home-scroll {
+    scrollbar-color: var(--endeavour) var(--alto-light);
+  }
+
+  .home-scroll::-webkit-scrollbar-thumb {
+    background-color: var(--endeavour);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0.4rem rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 1.6rem rgba(255, 255, 255, 0);
+  }
+}
+
+.ripple {
+  width: 1rem;
+  height: 1rem;
+  display: grid;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: var(--wild-sand);
+  animation: ripple 3s linear infinite;
+}
+
+.ripple::before,
+.ripple::after {
+  content: '';
+  grid-area: 1/1;
+  border-radius: 50%;
+  animation: inherit;
+  animation-delay: 1s;
+}
+
+.ripple::after {
+  animation-delay: 2s;
+}
+
 /* Tablets */
 @media screen and (max-width: 768px) {
-  .auth {
+  .auth-scroll {
     scrollbar-width: none; /* firefox scroll styling */
     -ms-overflow-style: none; /* IE and Edge */
   }
 
-  ::-webkit-scrollbar {
+  .auth-scroll::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
   }
 }
