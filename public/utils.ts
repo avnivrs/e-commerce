@@ -79,7 +79,13 @@ export const showAlert = ({
 };
 
 export const scrollNextItems = (containerSelector: string, xMovement?: number) => {
-  const container: HTMLDivElement = document.querySelector(containerSelector)!;
+  const container: HTMLDivElement | null = document.querySelector(containerSelector);
+
+  if (!container) {
+    return console.error(
+      `Div container with target: '${containerSelector}' does not exist in the DOM`
+    );
+  }
 
   const currentScrollLeft = container.scrollLeft;
   const containerWidth = xMovement || container.clientWidth;
@@ -89,7 +95,13 @@ export const scrollNextItems = (containerSelector: string, xMovement?: number) =
 };
 
 export const scrollPreviousItems = (containerSelector: string, xMovement?: number) => {
-  const container: HTMLDivElement = document.querySelector(containerSelector)!;
+  const container: HTMLDivElement | null = document.querySelector(containerSelector);
+
+  if (!container) {
+    return console.error(
+      `Div container with target: '${containerSelector}' does not exist in the DOM`
+    );
+  }
 
   const currentScrollLeft = container.scrollLeft;
   const containerWidth = xMovement || container.clientWidth;

@@ -17,11 +17,6 @@ export interface AlertProps {
   textColor?: string;
 }
 
-export interface FocalPoint {
-  href: string;
-  title: string;
-}
-
 export interface SubNavButton {
   top: number;
   text: string;
@@ -40,6 +35,26 @@ export interface CategoryIcons {
   clothing: JSX.Element;
 }
 
+export interface Brands {
+  nike: JSX.Element;
+  ikea: JSX.Element;
+  dior: JSX.Element;
+  apple: JSX.Element;
+}
+
+export interface FocalPoint {
+  title: string;
+  xPos: number | string;
+  yPos: number | string;
+}
+
+export interface Slide {
+  id: number;
+  title: string;
+  image: string;
+  focalPoints: FocalPoint[];
+}
+
 export interface Product {
   id: string;
   brand: Brand;
@@ -47,6 +62,8 @@ export interface Product {
   image: string;
   price: number;
   rating: number;
+  description: string;
+  catchPhrase: string;
 }
 
 export interface AppContextData {
