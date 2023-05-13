@@ -22,9 +22,9 @@ const Clothing = () => {
           d='M15.4286 21.835C18.1431 22.9722 21.0569 23.5579 24 23.5579C26.9432 23.5579 29.8569 22.9722 32.5714 21.835'
         />
         <path
-          stroke='white'
           strokeLinecap='round'
           strokeLinejoin='round'
+          className='stroke-white dark:stroke-shark'
           d='M15.4286 21.835C18.1431 22.9722 21.0569 23.5579 24 23.5579C26.9432 23.5579 29.8569 22.9722 32.5714 21.835'
         />
       </svg>

@@ -1,5 +1,3 @@
-import BrandLayout from './layouts/BrandLayout';
-
 import { Brand } from '@/public/types';
 import { Brands } from '@/public/interfaces';
 
@@ -51,7 +49,13 @@ interface Props {
 }
 
 const BrandBubble: React.FC<Props> = ({ brandName, extraClassNames }) => {
-  return <BrandLayout extraClassNames={extraClassNames}>{brands[brandName]}</BrandLayout>;
+  return (
+    <div
+      className={`absolute top-[10px] right-[10px] w-[38px] h-[26px] bg-[rgba(255,255,255,0.7)] backdrop-blur-md rounded-[20px] grid place-items-center ${extraClassNames}`}
+    >
+      {brands[brandName]}
+    </div>
+  );
 };
 
 export default BrandBubble;

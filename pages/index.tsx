@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 import Slider from '@/components/Slider';
 import NavItem from '@/components/NavItem';
@@ -27,14 +27,19 @@ import {
   showAlert,
   removeClass,
   toggleClass,
+  isInViewport,
   scrollScreenTo,
   scrollNextItems,
   scrollPreviousItems,
 } from '@/public/utils';
+import HomeFooter from '@/components/footers/HomeFooter';
 
 const Home = () => {
+  const appDisplayRef = useRef<HTMLDivElement>(null);
+  const topButtonRef = useRef<HTMLButtonElement>(null);
   const [products, setProducts] = useState<Product[]>([]);
   const [overlayOpened, setOverlayOpened] = useState(false);
+  const [reachedFalseBottom, setReachedFalseBottom] = useState(false);
   const optionProps: SliderProps[] = [
     { width: 114, marginLeft: 0 },
     { width: 140, marginLeft: '33.5%' },
@@ -72,7 +77,20 @@ const Home = () => {
       .catch(error => showAlert({ msg: 'An error occured while fetching products' }));
   };
 
-  useEffect(fetchProducts, []);
+  const onScroll = () => {
+    if (isInViewport(topButtonRef.current)) {
+      setReachedFalseBottom(true);
+      console.log('false bottom reached');
+    }
+  };
+
+  useEffect(() => {
+    fetchProducts();
+
+    window.addEventListener('scroll', onScroll);
+
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
     <main className='home-scroll h-screen overflow-y-auto text-outer-space dark:text-white'>
@@ -99,7 +117,7 @@ const Home = () => {
         </div>
 
         <div className='mt-5 px-[50px] grid grid-cols-[auto_minmax(0,1fr)_auto_auto] gap-x-[10px] font-medium'>
-          <div className='bg-azure-radiance w-6 h-[18px] rounded-full ' />
+          <div className='bg-azure-radiance w-6 h-[18px] rounded-full' />
 
           <p className='pr-[50px] text-[14px] leading-[17px]'>Company name</p>
 
@@ -124,7 +142,7 @@ const Home = () => {
             className='w-[600px] outline-none mx-auto block font-medium text-[14px] leading-[17px] py-[22px] pl-[25px] pr-[135px] placeholder:text-[rgba(0,0,0,0.5)] rounded-xl shadow-[0px_2px_10px_rgba(0,0,0,0.1)] bg-white border border-mercury-light-1'
           />
 
-          <div className='bg-[rgba(0,0,0,0.05)] rounded-md absolute top-[16.3%] right-[1.7%] bg-[url(/assets/svgs/neo-1.svg)] bg-no-repeat bg-[12.5%_53%] pl-[37px] pr-[15px] pt-[13px] w-auto h-[41px] font-normal text-[14px] leading-[17px]'>
+          <div className='bg-[rgba(0,0,0,0.05)] z-[2] shadow-[-10px_0_0_0_#fff] rounded-md absolute top-[16.3%] right-[1.7%] bg-[url(/assets/svgs/neo-1.svg)] bg-no-repeat bg-[12.5%_53%] pl-[41px] pr-[15px] pt-[13px] w-auto h-[41px] font-normal text-[14px] leading-[17px]'>
             AI search
           </div>
         </div>
@@ -145,7 +163,7 @@ const Home = () => {
         <ArrowRightCircled
           width='35'
           height='35'
-          extraClassnames='-rotate-180 mt-36 cursor-pointer'
+          extraClassnames='-rotate-180 mt-24 cursor-pointer'
           onClick={() => scrollPreviousItems('.option-bubbles', 143)}
         />
 
@@ -172,19 +190,20 @@ const Home = () => {
           </header>
           <OptionSlider width={sliderProps.width} marginLeft={sliderProps.marginLeft} />
 
-          <div className='scroll-hidden option-bubbles mt-10 overflow-x-auto flex items-center gap-x-10 p-10 border-b border-mischka'>
-            <OptionBubble bgName='kids' />
-            <OptionBubble bgName='gadgets' />
-            <OptionBubble bgName='clothing' />
-            <OptionBubble bgName='health' />
-            <OptionBubble bgName='sports' />
+          <div className='scroll-hidden option-bubbles overflow-x-auto flex items-center gap-x-10 py-10 px-[12.5px] border-b border-mischka snap-x snap-mandatory'>
+            <OptionBubble bgName='kids' extraClassNames='snap-center' />
+            <OptionBubble bgName='gadgets' extraClassNames='snap-center' />
+            <OptionBubble bgName='clothing' extraClassNames='snap-center' />
+            <OptionBubble bgName='health' extraClassNames='snap-center' />
+            <OptionBubble bgName='sports' extraClassNames='snap-center' />
+            <OptionBubble bgName='sports' extraClassNames='snap-center' />
           </div>
         </div>
 
         <ArrowRightCircled
           width='35'
           height='35'
-          extraClassnames='mt-36 cursor-pointer'
+          extraClassnames='mt-24 cursor-pointer'
           onClick={() => scrollNextItems('.option-bubbles', 143)}
         />
       </section>
@@ -265,7 +284,12 @@ const Home = () => {
         </div>
       </SectionLayout>
 
-      <section className='w-[87%] mt-[100px] font-semibold text-outer-space mx-auto bg-concrete rounded-[30px] pt-[35px] px-[100px] flex items-center justify-center gap-x-[200px]'>
+      <section
+        ref={appDisplayRef}
+        className='relative overflow-clip w-[87%] mt-[100px] font-semibold text-outer-space mx-auto rounded-[30px] pt-[35px] px-[100px] flex items-center justify-center gap-x-[200px]'
+      >
+        <Image src='/assets/pngs/bg-2.png' fill priority alt='' className='absolute -z-[1]' />
+
         <div className='flex flex-col gap-y-[25px]'>
           <div className='bg-[url(/assets/svgs/bag-2.svg)] w-[60px] h-[60px] bg-no-repeat' />
           <p className='text-[24px] leading-[29px]'>Experience our app on the go!</p>
@@ -287,15 +311,8 @@ const Home = () => {
             />
           </div>
         </div>
-        <Image
-          alt=''
-          priority
-          width={247}
-          height={504}
-          unoptimized
-          src='/assets/pngs/phone.png'
-          className='w-[247px] h-[504px]'
-        />
+
+        <Image alt='' priority width={297} height={524} unoptimized src='/assets/pngs/phone.png' />
       </section>
 
       <SectionLayout>
@@ -320,7 +337,7 @@ const Home = () => {
             extraClassnames='-right-6'
           />
 
-          <div className='products3 flex w-full overflow-x-auto snap-x snap-mandatory gap-x-[33px] scroll-hidden'>
+          <div className='products3 flex w-full overflow-x-auto snap-x snap-mandatory gap-x-5 scroll-hidden'>
             {products.map(product => (
               <ProductCard1 key={product.id} product={product} extraClassNames='snap-start' />
             ))}
@@ -387,7 +404,7 @@ const Home = () => {
         </div>
       </section>
 
-      <SectionLayout>
+      <SectionLayout extraClassNames='!w-[1210px]'>
         <header className='font-medium tracking-[0.36px]'>
           <h5 className='text-[24px] leading-[45px]'>Personalized Shopping for You!</h5>
           <p className='mt-6 max-w-[476px] text-[14px] leading-[21px]'>
@@ -398,7 +415,7 @@ const Home = () => {
         </header>
 
         <div className='mt-[52px] flex w-full flex-wrap gap-[30px]'>
-          {products.slice(0, 6).map(product => (
+          {products.slice(-8).map(product => (
             <ProductCard5 key={product.id} product={product} />
           ))}
         </div>
@@ -413,11 +430,14 @@ const Home = () => {
       </SectionLayout>
 
       <button
+        ref={topButtonRef}
         onClick={() => scrollScreenTo({ y: 0 })}
-        className='bg-dove-gray py-[17px] w-full text-center mt-20 font-bold text-[12px] leading-[15px] tracking-[0.36px] text-wild-sand'
+        className='bg-dove-gray dark:bg-wild-sand py-[17px] w-full text-center mt-20 font-bold text-[12px] leading-[15px] tracking-[0.36px] text-wild-sand dark:text-shark'
       >
         Back to top
       </button>
+
+      <HomeFooter />
     </main>
   );
 };
